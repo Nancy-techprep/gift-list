@@ -13,6 +13,8 @@
 #
 class Occasion < ApplicationRecord
 
+  validates :user_id, :presence => true
+  
   belongs_to(:user, { :required => true, :class_name => "User", :foreign_key => "user_id", :counter_cache => true })
 
   belongs_to(:loved_one, { :required => true, :class_name => "LovedOne", :foreign_key => "loved_one_id", :counter_cache => true })
