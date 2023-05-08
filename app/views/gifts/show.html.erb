@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Gift #<%= @the_gift.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/gifts">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_gift/<%= @the_gift.id %>">
+          Delete gift
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Occasion
+      </dt>
+      <dd>
+        <%= @the_gift.occasion_id %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_gift.user_id %>
+      </dd>
+
+      <dt>
+        Note
+      </dt>
+      <dd>
+        <%= @the_gift.note %>
+      </dd>
+
+      <dt>
+        Loved one
+      </dt>
+      <dd>
+        <%= @the_gift.loved_one_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_gift.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_gift.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit gift
+    </h2>
+
+    <form action="/modify_gift/<%= @the_gift.id %>"  method="post" >
+      <div>
+        <label for="occasion_id_box">
+          Occasion
+        </label>
+
+        <input type="text" id="occasion_id_box" name="query_occasion_id" value="<%= @the_gift.occasion_id %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_gift.user_id %>">
+      </div>
+
+      <div>
+        <label for="note_box">
+          Note
+        </label>
+
+        <textarea id="note_box" name="query_note"><%= @the_gift.note %></textarea>
+      </div>
+
+      <div>
+        <label for="loved_one_id_box">
+          Loved one
+        </label>
+
+        <input type="text" id="loved_one_id_box" name="query_loved_one_id" value="<%= @the_gift.loved_one_id %>">
+      </div>
+
+      <button>
+        Update gift
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

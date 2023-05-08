@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Occasion #<%= @the_occasion.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/occasions">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_occasion/<%= @the_occasion.id %>">
+          Delete occasion
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_occasion.user_id %>
+      </dd>
+
+      <dt>
+        Loved one
+      </dt>
+      <dd>
+        <%= @the_occasion.loved_one_id %>
+      </dd>
+
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_occasion.name %>
+      </dd>
+
+      <dt>
+        Date
+      </dt>
+      <dd>
+        <%= @the_occasion.date %>
+      </dd>
+
+      <dt>
+        Gifts count
+      </dt>
+      <dd>
+        <%= @the_occasion.gifts_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_occasion.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_occasion.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit occasion
+    </h2>
+
+    <form action="/modify_occasion/<%= @the_occasion.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_occasion.user_id %>">
+      </div>
+
+      <div>
+        <label for="loved_one_id_box">
+          Loved one
+        </label>
+
+        <input type="text" id="loved_one_id_box" name="query_loved_one_id" value="<%= @the_occasion.loved_one_id %>">
+      </div>
+
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_occasion.name %>">
+      </div>
+
+      <div>
+        <label for="date_box">
+          Date
+        </label>
+
+        <input type="date" id="date_box" name="query_date" value="<%= @the_occasion.date %>">
+      </div>
+
+      <div>
+        <label for="gifts_count_box">
+          Gifts count
+        </label>
+
+        <input type="text" id="gifts_count_box" name="query_gifts_count" value="<%= @the_occasion.gifts_count %>">
+      </div>
+
+      <button>
+        Update occasion
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

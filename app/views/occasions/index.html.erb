@@ -1,0 +1,150 @@
+<div>
+  <div>
+    <h1>
+      List of all occasions
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new occasion
+    </h2>
+
+    <form action="/insert_occasion" method="post">
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="loved_one_id_box">
+          Loved one
+        </label>
+
+        <input type="text" id="loved_one_id_box" name="query_loved_one_id">
+      </div>
+
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="date_box">
+          Date
+        </label>
+
+        <input type="date" id="date_box" name="query_date">
+      </div>
+
+      <div>
+        <label for="gifts_count_box">
+          Gifts count
+        </label>
+
+        <input type="text" id="gifts_count_box" name="query_gifts_count">
+      </div>
+
+      <button>
+        Create occasion
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Loved one
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Date
+        </th>
+
+        <th>
+          Gifts count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_occasions.each do |an_occasion| %>
+      <tr>
+        <td>
+          <%= an_occasion.id %>
+        </td>
+
+        <td>
+          <%= an_occasion.user_id %>
+        </td>
+
+        <td>
+          <%= an_occasion.loved_one_id %>
+        </td>
+
+        <td>
+          <%= an_occasion.name %>
+        </td>
+
+        <td>
+          <%= an_occasion.date %>
+        </td>
+
+        <td>
+          <%= an_occasion.gifts_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(an_occasion.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(an_occasion.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/occasions/<%= an_occasion.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

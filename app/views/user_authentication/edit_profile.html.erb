@@ -1,0 +1,40 @@
+<div >
+  <h5>
+    Edit User Account
+  </h5>
+
+  <div>
+    <form action="/modify_user" method="post">
+      <div>
+        <label for="email_box">Email</label>
+        <input id="email_box" name="query_email" value="<%= @current_user.email %>">
+      </div>
+      <div>
+        <label for="loved_ones_count_box">Loved ones count</label>
+        <input id="loved_ones_count_box" name="query_loved_ones_count" value="<%= @current_user.loved_ones_count %>">
+      </div>
+      <div>
+        <label for="occasions_count_box">Occasions count</label>
+        <input id="occasions_count_box" name="query_occasions_count" value="<%= @current_user.occasions_count %>">
+      </div>
+      <div>
+        <label for="gifts_count_box">Gifts count</label>
+        <input id="gifts_count_box" name="query_gifts_count" value="<%= @current_user.gifts_count %>">
+      </div>
+
+      <div>
+        <label for="password_box">Password</label>
+        <input id="password_box" name="query_password" placeholder="Choose a password..." type="password">
+      </div>
+    
+      <div>
+        <label for="password_confirmation_box">Password Confirmation</label>
+        <input id="password_confirmation_box" name="query_password_confirmation" placeholder="Confirm your password..." type="password">
+      </div>
+
+      <button>
+        Update account
+      </button>
+    </form>
+  </div>
+</div>

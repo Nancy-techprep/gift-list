@@ -1,0 +1,150 @@
+<div>
+  <div>
+    <h1>
+      List of all loved ones
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new loved one
+    </h2>
+
+    <form action="/insert_loved_one" method="post">
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="relationship_box">
+          Relationship
+        </label>
+
+        <input type="text" id="relationship_box" name="query_relationship">
+      </div>
+
+      <div>
+        <label for="occasions_count_box">
+          Occasions count
+        </label>
+
+        <input type="text" id="occasions_count_box" name="query_occasions_count">
+      </div>
+
+      <div>
+        <label for="gifts_count_box">
+          Gifts count
+        </label>
+
+        <input type="text" id="gifts_count_box" name="query_gifts_count">
+      </div>
+
+      <button>
+        Create loved one
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Relationship
+        </th>
+
+        <th>
+          Occasions count
+        </th>
+
+        <th>
+          Gifts count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_loved_ones.each do |a_loved_one| %>
+      <tr>
+        <td>
+          <%= a_loved_one.id %>
+        </td>
+
+        <td>
+          <%= a_loved_one.user_id %>
+        </td>
+
+        <td>
+          <%= a_loved_one.name %>
+        </td>
+
+        <td>
+          <%= a_loved_one.relationship %>
+        </td>
+
+        <td>
+          <%= a_loved_one.occasions_count %>
+        </td>
+
+        <td>
+          <%= a_loved_one.gifts_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_loved_one.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_loved_one.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/loved_ones/<%= a_loved_one.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

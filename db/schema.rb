@@ -10,6 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2023_05_08_191938) do
+
+  create_table "gifts", force: :cascade do |t|
+    t.integer "occasion_id"
+    t.integer "user_id"
+    t.text "note"
+    t.integer "loved_one_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "loved_ones", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "name"
+    t.string "relationship"
+    t.integer "occasions_count"
+    t.integer "gifts_count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "occasions", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "loved_one_id"
+    t.string "name"
+    t.date "date"
+    t.integer "gifts_count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.integer "loved_ones_count"
+    t.integer "occasions_count"
+    t.integer "gifts_count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "username"
+  end
 
 end

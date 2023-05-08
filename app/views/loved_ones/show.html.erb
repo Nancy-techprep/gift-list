@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Loved one #<%= @the_loved_one.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/loved_ones">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_loved_one/<%= @the_loved_one.id %>">
+          Delete loved one
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_loved_one.user_id %>
+      </dd>
+
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_loved_one.name %>
+      </dd>
+
+      <dt>
+        Relationship
+      </dt>
+      <dd>
+        <%= @the_loved_one.relationship %>
+      </dd>
+
+      <dt>
+        Occasions count
+      </dt>
+      <dd>
+        <%= @the_loved_one.occasions_count %>
+      </dd>
+
+      <dt>
+        Gifts count
+      </dt>
+      <dd>
+        <%= @the_loved_one.gifts_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_loved_one.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_loved_one.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit loved one
+    </h2>
+
+    <form action="/modify_loved_one/<%= @the_loved_one.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_loved_one.user_id %>">
+      </div>
+
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_loved_one.name %>">
+      </div>
+
+      <div>
+        <label for="relationship_box">
+          Relationship
+        </label>
+
+        <input type="text" id="relationship_box" name="query_relationship" value="<%= @the_loved_one.relationship %>">
+      </div>
+
+      <div>
+        <label for="occasions_count_box">
+          Occasions count
+        </label>
+
+        <input type="text" id="occasions_count_box" name="query_occasions_count" value="<%= @the_loved_one.occasions_count %>">
+      </div>
+
+      <div>
+        <label for="gifts_count_box">
+          Gifts count
+        </label>
+
+        <input type="text" id="gifts_count_box" name="query_gifts_count" value="<%= @the_loved_one.gifts_count %>">
+      </div>
+
+      <button>
+        Update loved one
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
