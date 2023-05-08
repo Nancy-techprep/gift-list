@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-
-root to: "posts#index"
+  root to: "application#root"
 
   # Routes for the Gift resource:
 
