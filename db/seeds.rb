@@ -6,8 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# puts "seeding user"
-# user = User.find_or_create_by(email: "nancyjc1297@gmail.com", username: "nancy") do |u|
-
-#u.password = "password"
-# end
+puts "seeding user"
+user = User.find_or_create_by(email: "nancyjc1297@gmail.com", username: "nancy") do |u|
+  u.password = "password"
+end
