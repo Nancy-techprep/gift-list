@@ -1,4 +1,6 @@
 class LovedOnesController < ApplicationController
+  before_action(:force_user_sign_in)
+
   def index
     matching_loved_ones = LovedOne.all
 
