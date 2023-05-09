@@ -15,7 +15,8 @@ class Gift < ApplicationRecord
   validates :user_id, :presence => true
   validates :loved_one_id, :presence => true
 
-  has_many(:gifts, { :class_name => "Gift", :foreign_key => "occasion_id", :dependent => :nullify })
+  # has_many(:gifts, { :class_name => "Gift", :foreign_key => "occasion_id", :dependent => :nullify })
+  belongs_to(:occasion)
   belongs_to(:loved_one, { :required => true, :class_name => "LovedOne", :foreign_key => "loved_one_id", :counter_cache => true })
   belongs_to(:loved_one, { :required => true, :class_name => "LovedOne", :foreign_key => "loved_one_id", :counter_cache => true })
 end
