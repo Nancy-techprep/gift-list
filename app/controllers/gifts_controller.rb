@@ -2,7 +2,7 @@ class GiftsController < ApplicationController
   def index
     matching_gifts = Gift.all
 
-    @list_of_gifts = matching_gifts.order({ :created_at => :desc })
+    @list_of_gifts = matching_gifts.where({ :user_id => @current_user.id }).order({ :username => :desc })
 
     render({ :template => "gifts/index.html.erb" })
   end
