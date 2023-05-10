@@ -102,6 +102,7 @@
         <th>
         </th>
       </tr>
+      
 
       <% @list_of_loved_ones.each do |a_loved_one| %>
       <tr>
@@ -110,7 +111,7 @@
         </td>
 
         <td>
-          <%= a_loved_one.user_id %>
+          <%= a_loved_one.user.username %>
         </td>
 
         <td>
