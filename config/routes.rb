@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   # Routes for the Gift resource:
 
-  # CREATE
+  # CREATE (go back to this, rn u have create )
   post("/insert_gift", { :controller => "gifts", :action => "create" })
           
   # READ
