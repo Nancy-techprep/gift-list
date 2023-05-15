@@ -4,7 +4,7 @@ class OccasionsController < ApplicationController
   def index
     matching_occasions = Occasion.all
 
-    @list_of_occasions = matching_occasions.where({ :user_id => @current_user.id }).order({ :username => :desc })
+    @list_of_occasions = matching_occasions.where({ :user_id => @current_user.id }) #.order({ :username => :desc })
 
     render({ :template => "occasions/index.html.erb" })
   end
