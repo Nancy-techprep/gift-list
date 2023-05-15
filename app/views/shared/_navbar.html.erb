@@ -10,35 +10,37 @@
 
     <div class="collapse navbar-collapse" id="collapsible-nav-links">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            View
+        <li class="nav-item <%= "active" if current_page?(gifts_path) %>">
+          <a href="/gifts" class="nav-link">
+            Gifts
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a href="/gifts" class="dropdown-item">
-              Gifts
-            </a>
-            <a href="/occasions" class="dropdown-item">
-              Occasions
-            </a>
-            <a href="/loved_ones" class="dropdown-item">
-              Loved Ones 
-            </a>
-              <div>
-               <% if session.fetch(:user_id) == nil %>
-                <li>
-                  <a href="/user_sign_up">Sign up</a>
-                </li>
-                <li>
-                <a href="/user_sign_in">Sign in</a>
-                </li>
-              <% else %>
-                <li>
-              <a href="/user_sign_out">Sign out</a>
-              </li>
-             <% end %>
-            
-          </div>
+        </li>
+        <li class="nav-item <%= "active" if current_page?(occasions_path) %>">
+          <a href="/occasions" class="nav-link">
+            Occasions
+          </a>
+        </li>
+        <li class="nav-item <%= "active" if current_page?(loved_ones_path) %>">
+          <a href="/loved_ones" class="nav-link">
+            Loved Ones 
+          </a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav">
+        <% if session.fetch(:user_id) == nil %>
+          <li class="nav-item">
+            <a href="/user_sign_up" class="nav-link">Sign up</a>
+          </li>
+          <li class="nav-item">
+            <a href="/user_sign_in" class="nav-link">Sign in</a>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <a href="/user_sign_out" class="nav-link">Sign out</a>
+          </li>
+      <% end %>
+    </ul>
         </li>
       </ul>
     </div> <!-- .navbar-collapse -->
