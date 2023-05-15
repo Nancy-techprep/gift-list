@@ -23,7 +23,7 @@
         User
       </dt>
       <dd>
-        <%= @the_loved_one.user_id %>
+        <%= @the_loved_one.user.username %>
       </dd>
 
       <dt>
@@ -83,10 +83,10 @@
     <form action="/modify_loved_one/<%= @the_loved_one.id %>"  method="post" >
       <div>
         <label for="user_id_box">
-          User
+          User <%= @current_user.username %>
         </label>
 
-        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_loved_one.user_id %>">
+        <input type="hidden" id="user_id_box" name="query_user_id" value="<%= @the_loved_one.user_id %>">
       </div>
 
       <div>

@@ -23,14 +23,14 @@
         User
       </dt>
       <dd>
-        <%= @the_occasion.user_id %>
+        <%= @the_occasion.user.username %>
       </dd>
 
       <dt>
         Loved one
       </dt>
       <dd>
-        <%= @the_occasion.loved_one_id %>
+        <%= @the_occasion.loved_one.name %>
       </dd>
 
       <dt>
@@ -83,18 +83,18 @@
     <form action="/modify_occasion/<%= @the_occasion.id %>"  method="post" >
       <div>
         <label for="user_id_box">
-          User
+          User <%= @current_user.username %>
         </label>
 
-        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_occasion.user_id %>">
+        <input type="hidden" id="user_id_box" name="query_user_id" value="<%= @the_occasion.user_id %>">
       </div>
 
       <div>
-        <label for="loved_one_id_box">
-          Loved one
+        <label for="loved_one_name_box">
+          Loved one name
         </label>
 
-        <input type="text" id="loved_one_id_box" name="query_loved_one_id" value="<%= @the_occasion.loved_one_id %>">
+        <input type="text" id="loved_one_name_box" name="query_loved_one_name" value="<%= @the_occasion.loved_one.name %>">
       </div>
 
       <div>

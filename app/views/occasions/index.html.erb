@@ -17,26 +17,26 @@
     <form action="/insert_occasion" method="post">
       <div>
         <label for="user_id_box">
-          User
+        <%= @current_user.username %>
         </label>
 
-        <input type="text" id="user_id_box" name="query_user_id">
+        <input type="hidden" id="user_id_box" name="query_user_id" value="<%= @current_user.username %>">
       </div>
 
-      <div>
-        <label for="loved_one_id_box">
-          Loved one
+       <div>
+       <label for="loved_one_name_box">
+          Loved one name
         </label>
 
-        <input type="text" id="loved_one_id_box" name="query_loved_one_id">
+        <input type="text" id="loved_one_name_box" name="query_loved_one_name">
       </div>
-
+        
       <div>
         <label for="name_box">
-          Name
+          Occasion name
         </label>
 
-        <input type="text" id="name_box" name="query_name">
+        <input type="text" id="occasion_name_box" name="query_occasion_name">
       </div>
 
       <div>
