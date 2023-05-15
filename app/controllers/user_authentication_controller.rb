@@ -44,6 +44,7 @@ class UserAuthenticationController < ApplicationController
     @user.loved_ones_count = params.fetch("query_loved_ones_count")
     @user.occasions_count = params.fetch("query_occasions_count")
     @user.gifts_count = params.fetch("query_gifts_count")
+    @user.username = params.fetch("query_username")
 
     save_status = @user.save
 

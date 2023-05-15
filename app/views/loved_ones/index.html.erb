@@ -16,11 +16,12 @@
 
     <form action="/insert_loved_one" method="post">
       <div>
-        <label for="user_id_box">
+      <!-- <input type="hidden" name=":user_id" value=<%= :user_id %>> 
+       <label for="user_id_box">
           User
-        </label>
+        </label> !-->
 
-        <input type="text" id="user_id_box" name="query_user_id">
+        <input type="hidden" id="user_id_box" name="query_user_id">
       </div>
 
       <div>
@@ -39,6 +40,7 @@
         <input type="text" id="relationship_box" name="query_relationship">
       </div>
 
+      <!--
       <div>
         <label for="occasions_count_box">
           Occasions count
@@ -54,7 +56,7 @@
 
         <input type="text" id="gifts_count_box" name="query_gifts_count">
       </div>
-
+    !-->
       <button>
         Create loved one
       </button>

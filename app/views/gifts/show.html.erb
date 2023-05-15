@@ -23,14 +23,14 @@
         Occasion
       </dt>
       <dd>
-        <%= @the_gift.occasion_id %>
+        <%= @the_gift.occasion.name %>
       </dd>
 
       <dt>
         User
       </dt>
       <dd>
-        <%= @the_gift.user_id %>
+        <%= @current_user.username %>
       </dd>
 
       <dt>
@@ -44,7 +44,7 @@
         Loved one
       </dt>
       <dd>
-        <%= @the_gift.loved_one_id %>
+        <%= @the_gift.loved_one.name %>
       </dd>
 
       <dt>
@@ -75,19 +75,19 @@
 
     <form action="/modify_gift/<%= @the_gift.id %>"  method="post" >
       <div>
-        <label for="occasion_id_box">
+        <label for="occasion_name_box">
           Occasion
         </label>
 
-        <input type="text" id="occasion_id_box" name="query_occasion_id" value="<%= @the_gift.occasion_id %>">
+        <input type="text" id="occasion_name_box" name="query_occasion_name" value="<%= @the_gift.occasion.name %>">
       </div>
 
       <div>
         <label for="user_id_box">
-          User
+          User <%= @current_user.username %>
         </label>
 
-        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_gift.user_id %>">
+        <input type="hidden" id="user_id_box" name="query_user_id" value="<%= @the_gift.user_id %>">
       </div>
 
       <div>
@@ -103,7 +103,7 @@
           Loved one
         </label>
 
-        <input type="text" id="loved_one_id_box" name="query_loved_one_id" value="<%= @the_gift.loved_one_id %>">
+        <input type="text" id="loved_one_name_box" name="query_loved_one_name" value="<%= @the_gift.loved_one.name %>">
       </div>
 
       <button>
