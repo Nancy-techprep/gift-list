@@ -1,4 +1,6 @@
 class GiftsController < ApplicationController
+  before_action(:force_user_sign_in)
+  
   def index
     matching_gifts = Gift.all
 

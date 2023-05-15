@@ -85,4 +85,7 @@ Rails.application.routes.draw do
              
   #------------------------------
 
+  # ELVES
+
+  get("/elf/new", { :controller => "elves", :action => "index"})
 end

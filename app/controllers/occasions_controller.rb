@@ -1,4 +1,6 @@
 class OccasionsController < ApplicationController
+  before_action(:force_user_sign_in)
+
   def index
     matching_occasions = Occasion.all
 
@@ -45,7 +47,7 @@ class OccasionsController < ApplicationController
 
     if the_occasion.valid?
       the_occasion.save
-      redirect_to("/occasions/#{the_occasion.id}", { :notice => "Occasion updated successfully."} )
+      redirect_to("/occasions/#{the_occasion.id}", { :notice => "Occasion updated successfully." })
     else
       redirect_to("/occasions/#{the_occasion.id}", { :alert => the_occasion.errors.full_messages.to_sentence })
     end
@@ -57,6 +59,6 @@ class OccasionsController < ApplicationController
 
     the_occasion.destroy
 
-    redirect_to("/occasions", { :notice => "Occasion deleted successfully."} )
+    redirect_to("/occasions", { :notice => "Occasion deleted successfully." })
   end
 end
