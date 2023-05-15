@@ -4,7 +4,7 @@ class LovedOnesController < ApplicationController
   def index
     matching_loved_ones = LovedOne.all
 
-    @list_of_loved_ones = matching_loved_ones.where({ :user_id => @current_user.id }).order({ :username => :desc })
+    @list_of_loved_ones = matching_loved_ones.where({ :user_id => @current_user.id }) #.order({ :username => :desc })
 
     render({ :template => "loved_ones/index.html.erb" })
   end

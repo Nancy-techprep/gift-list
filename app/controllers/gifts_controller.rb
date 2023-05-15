@@ -1,10 +1,10 @@
 class GiftsController < ApplicationController
   before_action(:force_user_sign_in)
-  
+
   def index
     matching_gifts = Gift.all
 
-    @list_of_gifts = matching_gifts.where({ :user_id => @current_user.id }).order({ :username => :desc })
+    @list_of_gifts = matching_gifts.where({ :user_id => @current_user.id }) #.order({ :username => :desc })
 
     render({ :template => "gifts/index.html.erb" })
   end
