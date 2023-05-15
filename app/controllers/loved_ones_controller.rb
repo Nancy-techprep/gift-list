@@ -21,7 +21,7 @@ class LovedOnesController < ApplicationController
 
   def create
     the_loved_one = LovedOne.new
-    the_loved_one.user_id = params.fetch("query_user_id")
+    the_loved_one.user_id = session.fetch(:user_id)
     the_loved_one.name = params.fetch("query_name")
     the_loved_one.relationship = params.fetch("query_relationship")
     # the_loved_one.occasions_count = params.fetch("query_occasions_count")
