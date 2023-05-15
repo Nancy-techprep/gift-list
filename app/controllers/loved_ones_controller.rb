@@ -24,8 +24,8 @@ class LovedOnesController < ApplicationController
     the_loved_one.user_id = params.fetch("query_user_id")
     the_loved_one.name = params.fetch("query_name")
     the_loved_one.relationship = params.fetch("query_relationship")
-    the_loved_one.occasions_count = params.fetch("query_occasions_count")
-    the_loved_one.gifts_count = params.fetch("query_gifts_count")
+    # the_loved_one.occasions_count = params.fetch("query_occasions_count")
+   # the_loved_one.gifts_count = params.fetch("query_gifts_count")
 
     if the_loved_one.valid?
       the_loved_one.save
