@@ -10,6 +10,10 @@ class GiftsController < ApplicationController
 
     @list_of_loved_ones = matching_loved_ones.where({ :user_id => @current_user.id }) #.order({ :username => :desc })
 
+    matching_occasions = Occasion.all
+
+    @list_of_occasions = matching_occasions.where({ :user_id => @current_user.id })#.order({ :created_at => :desc })
+
     render({ :template => "gifts/index.html.erb" })
   end
 
@@ -30,7 +34,7 @@ class GiftsController < ApplicationController
   def create
     the_gift = Gift.new
     the_gift.occasion_id = params.fetch("query_occasion_id")
-    the_gift.user_id = params.fetch("query_user_id")
+    the_gift.user_id = @current_user.id
     the_gift.note = params.fetch("query_note")
     the_gift.loved_one_id = params.fetch("query_loved_one_id")
 
