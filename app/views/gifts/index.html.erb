@@ -15,12 +15,25 @@
     </h2>
 
     <form action="/insert_gift" method="post">
-      <div>
-        <label for="occasion_name_box">
-          Occasion Name
+        <div>
+
+       
+        <label for="name_box">
+          Occasion name
         </label>
 
-        <input type="text" id="occasion_name_box" name="query_occasion_name">
+        <select id="occasion_name_box" name="query_occasion_name">
+          <option value="birthday">Birthday</option>
+          <option value="anniversary">Anniversary</option>
+          <option value="christmas">Christmas</option>
+          <option value="mothers_day">Mother's Day</option>
+          <option value="fathers_day">Father's Day</option>
+          <option value="wedding">Wedding</option>
+          <option value="baptism">Baptism</option>
+          <option value="graduation">Graduation</option>
+          <option value="valentines_day">Valentines Day</option>
+          <option value="other">Other</option>
+        </select>
       </div>
 
       <!-- <div>
@@ -32,19 +45,23 @@
       </div> !-->
 
       <div>
+       <label for="loved_one_name_box">
+          Loved one name
+        </label>
+
+         <% @list_of_loved_ones.each do |loves| %>
+        <select id="name_box" name="query_name">
+            <option value="<%=loves.id%>"><%=loves.name%></option>
+        </select>
+        <% end %>
+      <div>
+
+      <div>
         <label for="note_box">
-          Note
+          Gift Ideas
         </label>
 
         <textarea id="note_box" name="query_note" rows="3"></textarea>
-      </div>
-
-      <div>
-        <label for="loved_one_name_box">
-          Loved one
-        </label>
-
-        <input type="text" id="loved_one_name_box" name="query_loved_one_name">
       </div>
 
       <button>
@@ -59,9 +76,6 @@
   <div>
     <table border="1">
       <tr>
-        <th>
-          ID
-        </th>
 
         <th>
           Occasion
@@ -72,7 +86,7 @@
         </th>
 
         <th>
-          Note
+          Gift Ideas
         </th>
 
         <th>
@@ -93,9 +107,6 @@
 
       <% @list_of_gifts.each do |a_gift| %>
       <tr>
-        <td>
-          <%= a_gift.id %>
-        </td>
 
         <td>
           <%= a_gift.occasion.name %>

@@ -28,15 +28,30 @@
           Loved one name
         </label>
 
-        <input type="text" id="loved_one_name_box" name="query_loved_one_name">
-      </div>
-        
+         <% @list_of_loved_ones.each do |loves| %>
+        <select id="name_box" name="query_name">
+            <option value="<%=loves.id%>"><%=loves.name%></option>
+        </select>
+        <% end %>
       <div>
+
+       
         <label for="name_box">
           Occasion name
         </label>
 
-        <input type="text" id="occasion_name_box" name="query_occasion_name">
+        <select id="occasion_name_box" name="query_occasion_name">
+          <option value="birthday">Birthday</option>
+          <option value="anniversary">Anniversary</option>
+          <option value="christmas">Christmas</option>
+          <option value="mothers_day">Mother's Day</option>
+          <option value="fathers_day">Father's Day</option>
+          <option value="wedding">Wedding</option>
+          <option value="baptism">Baptism</option>
+          <option value="graduation">Graduation</option>
+          <option value="valentines_day">Valentines Day</option>
+          <option value="other">Other</option>
+        </select>
       </div>
 
       <div>
@@ -67,9 +82,6 @@
   <div>
     <table border="1">
       <tr>
-        <th>
-          ID
-        </th>
 
         <th>
           User
@@ -80,7 +92,7 @@
         </th>
 
         <th>
-          Name
+          Occasion
         </th>
 
         <th>
@@ -105,9 +117,6 @@
 
       <% @list_of_occasions.each do |an_occasion| %>
       <tr>
-        <td>
-          <%= an_occasion.id %>
-        </td>
 
         <td>
           <%= an_occasion.user.username %>
