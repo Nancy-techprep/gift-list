@@ -20,6 +20,10 @@ class OccasionsController < ApplicationController
 
     @the_occasion = matching_occasions.at(0)
 
+    matching_loved_ones = LovedOne.all
+
+    @list_of_loved_ones = matching_loved_ones.where({ :user_id => @current_user.id }) #.order({ :username => :desc })
+
     render({ :template => "occasions/show.html.erb" })
   end
 

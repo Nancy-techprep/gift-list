@@ -62,13 +62,13 @@
         <input type="date" id="date_box" name="query_date">
       </div>
 
-      <div>
+      <!-- <div>
         <label for="gifts_count_box">
           Gifts count
         </label>
 
         <input type="text" id="gifts_count_box" name="query_gifts_count">
-      </div>
+      </div> !-->
 
       <button>
         Create occasion
@@ -97,10 +97,6 @@
 
         <th>
           Date
-        </th>
-
-        <th>
-          Gifts count
         </th>
 
         <th>
@@ -134,9 +130,9 @@
           <%= an_occasion.date %>
         </td>
 
-        <td>
+       <!--  <td>
           <%= an_occasion.gifts_count %>
-        </td>
+        </td> !-->
 
         <td>
           <%= time_ago_in_words(an_occasion.created_at) %> ago

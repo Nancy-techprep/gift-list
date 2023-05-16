@@ -34,7 +34,7 @@
       </dd>
 
       <dt>
-        Note
+        Gift Ideas
       </dt>
       <dd>
         <%= @the_gift.note %>
@@ -74,13 +74,7 @@
     </h2>
 
     <form action="/modify_gift/<%= @the_gift.id %>"  method="post" >
-      <div>
-        <label for="occasion_name_box">
-          Occasion
-        </label>
-
-        <input type="text" id="occasion_name_box" name="query_occasion_name" value="<%= @the_gift.occasion.name %>">
-      </div>
+       <div>
 
       <div>
         <label for="user_id_box">
@@ -88,6 +82,24 @@
         </label>
 
         <input type="hidden" id="user_id_box" name="query_user_id" value="<%= @the_gift.user_id %>">
+      </div>
+       
+        <label for="name_box">
+          Occasion name
+        </label>
+
+        <select id="occasion_name_box" name="query_occasion_name">
+          <option value="birthday">Birthday</option>
+          <option value="anniversary">Anniversary</option>
+          <option value="christmas">Christmas</option>
+          <option value="mothers_day">Mother's Day</option>
+          <option value="fathers_day">Father's Day</option>
+          <option value="wedding">Wedding</option>
+          <option value="baptism">Baptism</option>
+          <option value="graduation">Graduation</option>
+          <option value="valentines_day">Valentines Day</option>
+          <option value="other">Other</option>
+        </select>
       </div>
 
       <div>
@@ -98,13 +110,17 @@
         <textarea id="note_box" name="query_note"><%= @the_gift.note %></textarea>
       </div>
 
-      <div>
-        <label for="loved_one_id_box">
-          Loved one
+       <div>
+       <label for="loved_one_name_box">
+          Loved one name
         </label>
 
-        <input type="text" id="loved_one_name_box" name="query_loved_one_name" value="<%= @the_gift.loved_one.name %>">
-      </div>
+         <% @list_of_loved_ones.each do |loves| %>
+        <select id="name_box" name="query_name">
+            <option value="<%=loves.id%>"><%=loves.name%></option>
+        </select>
+        <% end %>
+      <div>
 
       <button>
         Update gift

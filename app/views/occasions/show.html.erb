@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Occasion #<%= @the_occasion.id %> details
+     <%= @the_occasion.loved_one.name %>'s <%= @the_occasion.name %> details
     </h1>
 
     <div>
@@ -34,7 +34,7 @@
       </dd>
 
       <dt>
-        Name
+        Occasion
       </dt>
       <dd>
         <%= @the_occasion.name %>
@@ -47,12 +47,12 @@
         <%= @the_occasion.date %>
       </dd>
 
-      <dt>
+    <!--  <dt>
         Gifts count
       </dt>
       <dd>
         <%= @the_occasion.gifts_count %>
-      </dd>
+      </dd> !-->
 
       <dt>
         Created at
@@ -89,20 +89,34 @@
         <input type="hidden" id="user_id_box" name="query_user_id" value="<%= @the_occasion.user_id %>">
       </div>
 
-      <div>
-        <label for="loved_one_name_box">
+       <div>
+       <label for="loved_one_name_box">
           Loved one name
         </label>
 
-        <input type="text" id="loved_one_name_box" name="query_loved_one_name" value="<%= @the_occasion.loved_one.name %>">
-      </div>
-
+         <% @list_of_loved_ones.each do |loves| %>
+        <select id="name_box" name="query_name">
+            <option value="<%=loves.id%>"><%=loves.name%></option>
+        </select>
+        <% end %>
       <div>
-        <label for="name_box">
-          Name
+
+         <label for="name_box">
+          Occasion name
         </label>
 
-        <input type="text" id="name_box" name="query_name" value="<%= @the_occasion.name %>">
+        <select id="occasion_name_box" name="query_occasion_name">
+          <option value="birthday">Birthday</option>
+          <option value="anniversary">Anniversary</option>
+          <option value="christmas">Christmas</option>
+          <option value="mothers_day">Mother's Day</option>
+          <option value="fathers_day">Father's Day</option>
+          <option value="wedding">Wedding</option>
+          <option value="baptism">Baptism</option>
+          <option value="graduation">Graduation</option>
+          <option value="valentines_day">Valentines Day</option>
+          <option value="other">Other</option>
+        </select>
       </div>
 
       <div>
@@ -113,13 +127,13 @@
         <input type="date" id="date_box" name="query_date" value="<%= @the_occasion.date %>">
       </div>
 
-      <div>
+      <!-- <div>
         <label for="gifts_count_box">
           Gifts count
         </label>
 
         <input type="text" id="gifts_count_box" name="query_gifts_count" value="<%= @the_occasion.gifts_count %>">
-      </div>
+      </div> !-->
 
       <button>
         Update occasion

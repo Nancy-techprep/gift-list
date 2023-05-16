@@ -9,7 +9,7 @@ class GiftsController < ApplicationController
     matching_loved_ones = LovedOne.all
 
     @list_of_loved_ones = matching_loved_ones.where({ :user_id => @current_user.id }) #.order({ :username => :desc })
-    
+
     render({ :template => "gifts/index.html.erb" })
   end
 
@@ -20,6 +20,10 @@ class GiftsController < ApplicationController
 
     @the_gift = matching_gifts.at(0)
 
+    matching_loved_ones = LovedOne.all
+
+    @list_of_loved_ones = matching_loved_ones.where({ :user_id => @current_user.id }) #.order({ :username => :desc })
+    
     render({ :template => "gifts/show.html.erb" })
   end
 
