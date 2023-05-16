@@ -89,33 +89,39 @@
         <input type="hidden" id="user_id_box" name="query_user_id" value="<%= @the_occasion.user_id %>">
       </div>
 
-       <div>
-       <label for="loved_one_name_box">
-          Loved one name
-        </label>
-
-         <% @list_of_loved_ones.each do |loves| %>
-        <select id="name_box" name="query_name">
-            <option value="<%=loves.id%>"><%=loves.name%></option>
-        </select>
-        <% end %>
       <div>
+       <label for="name_box">
+       Loved One
+       </label>
+
+        <select id="name_box" name="query_loved_one_id">
+          <% @list_of_loved_ones.each do |love| %>
+            <option value="<%= love.id %>"><%= love.name %></option>
+          <% end %>
+        </select>
+      </div>
+      
+     <!-- <div>
+        <% @list_of_loved_ones.each do |love| %>
+          <input name="query_loved_one_id" type="hidden" value="<%= love.id %>">
+        <% end %>
+      </div> !-->
 
          <label for="name_box">
           Occasion name
         </label>
 
         <select id="occasion_name_box" name="query_occasion_name">
-          <option value="birthday">Birthday</option>
-          <option value="anniversary">Anniversary</option>
-          <option value="christmas">Christmas</option>
-          <option value="mothers_day">Mother's Day</option>
-          <option value="fathers_day">Father's Day</option>
-          <option value="wedding">Wedding</option>
-          <option value="baptism">Baptism</option>
-          <option value="graduation">Graduation</option>
-          <option value="valentines_day">Valentines Day</option>
-          <option value="other">Other</option>
+          <option>Birthday</option>
+          <option>Anniversary</option>
+          <option>Christmas</option>
+          <option>Mother's Day</option>
+          <option>Father's Day</option>
+          <option>Wedding</option>
+          <option>Baptism</option>
+          <option>Graduation</option>
+          <option>Valentines Day</option>
+          <option>Other</option>
         </select>
       </div>
 

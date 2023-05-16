@@ -29,11 +29,11 @@ class OccasionsController < ApplicationController
 
   def create
     the_occasion = Occasion.new
-    the_occasion.user_id = params.fetch("query_user_id")
+    the_occasion.user_id = @current_user.id
     the_occasion.loved_one_id = params.fetch("query_loved_one_id")
-    the_occasion.name = params.fetch("query_name")
+    the_occasion.name = params.fetch("query_occasion_name")
     the_occasion.date = params.fetch("query_date")
-    the_occasion.gifts_count = params.fetch("query_gifts_count")
+    the_occasion.gifts_count = 0
 
     if the_occasion.valid?
       the_occasion.save
@@ -49,9 +49,9 @@ class OccasionsController < ApplicationController
 
     the_occasion.user_id = params.fetch("query_user_id")
     the_occasion.loved_one_id = params.fetch("query_loved_one_id")
-    the_occasion.name = params.fetch("query_name")
+    the_occasion.name = params.fetch("query_occasion_name")
     the_occasion.date = params.fetch("query_date")
-    the_occasion.gifts_count = params.fetch("query_gifts_count")
+    the_occasion.gifts_count = 0
 
     if the_occasion.valid?
       the_occasion.save
