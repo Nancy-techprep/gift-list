@@ -1,43 +1,46 @@
-<div>
-  <div>
+<div class="container">
+
+<div class="row mb-4">
+  <div class="col-md-12">
+    <div>
     <h1>
       List of all loved ones
     </h1>
+    </div>
   </div>
 </div>
 
-<hr>
-
-<div>
-  <div>
-    <h2>
-      Add a new loved one
-    </h2>
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <div>
+        <h2>
+          Add a new loved one
+        </h2>
 
     <form action="/insert_loved_one" method="post">
-      <div>
+      <div class="mb-3">
       <!-- <input type="hidden" name=":user_id" value=<%= :user_id %>> 
        <label for="user_id_box">
           User
         </label> !-->
 
-        <input type="hidden" id="user_id_box" name="query_user_id">
+        <input type="hidden" id="user_id_box" name="query_user_id" class="form-control">
       </div>
 
-      <div>
+      <div class="mb-3">
         <label for="name_box">
           Name
         </label>
 
-        <input type="text" id="name_box" name="query_name">
+        <input type="text" id="name_box" name="query_name" class="form-control">
       </div>
 
-      <div>
-        <label for="relationship_box">
+      <div class="mb-3">
+        <label for="relationship_box" class="form-label">
           Relationship
         </label>
 
-        <input type="text" id="relationship_box" name="query_relationship">
+        <input type="text" id="relationship_box" name="query_relationship" class="form-control">
       </div>
 
       <!--
@@ -57,17 +60,24 @@
         <input type="text" id="gifts_count_box" name="query_gifts_count">
       </div>
     !-->
-      <button>
+    <div class="d-grid">
+      <button class="btn btn-primary">
         Create loved one
       </button>
+      </div>
+
     </form>
   </div>
 </div>
+</div>
+</div>
+
+<hr>
 
 <hr>
 <div>
   <div>
-    <table border="1">
+    <table class="table">
       <tr>
 
         <th>
