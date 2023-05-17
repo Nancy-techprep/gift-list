@@ -1,77 +1,73 @@
-<div>
-  <div>
-    <h1>
-      List of all occasions
-    </h1>
+
+<div class="container">
+
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <div>
+        <h1>
+          All your occasions
+        </h1>
+      </div>
+    </div>
   </div>
-</div>
-
-<hr>
-
-<div>
-  <div>
-    <h2>
-      Add a new occasion
-    </h2>
-
-    <form action="/insert_occasion" method="post">
+  <div class="row mb-4">
+    <div class="col-md-6">
       <div>
-        <label for="user_id_box">
-        <%= @current_user.username %>
-        </label>
+        <h2>
+          Add a new occasion
+        </h2>
 
-        <input type="hidden" id="user_id_box" name="query_user_id" value="<%= @current_user.username %>">
-        
-      </div>
-       <div>
-       <label for="loved_one_name_box">
-          Loved one name
-        </label>
+        <form action="/insert_occasion" method="post">
+          <div class="mb-3">
+            <label for="user_id_box" class="form-label">
+              <%= @current_user.username %>
+            </label>
 
-      <div>
-        <select id="name_box" name="query_name">
-          <% @list_of_loved_ones.each do |love| %>
-            <option value="<%= love.name %>"><%= love.name %></option>
-          <% end %>
-        </select>
-      </div>
-      
-      <div>
-        <% @list_of_loved_ones.each do |love| %>
-          <input name="query_loved_one_id" type="hidden" value="<%= love.id %>">
-        <% end %>
-      </div>
+            <input type="hidden" id="user_id_box" name="query_user_id" value="<%= @current_user.username %>" class="form-control">
 
-      <div> 
+          </div>
 
-       
-        <label for="name_box">
-          Occasion name
-        </label>
+          <div class="mb-3">
+            <label for="loved_one_name_box" class="form-label">
+              Loved one name
+            </label>
 
-        <select id="occasion_name_box" name="query_occasion_name">
-          <option>Birthday</option>
-          <option>Anniversary</option>
-          <option>Christmas</option>
-          <option>Mother's Day</option>
-          <option>Father's Day</option>
-          <option>Wedding</option>
-          <option>Baptism</option>
-          <option>Graduation</option>
-          <option>Valentines Day</option>
-          <option>Other</option>
-        </select>
-      </div>
+            <select id="name_box" name="query_loved_one_id" class="form-control">
+              <% @list_of_loved_ones.each do |love| %>
+                <option value="<%= love.id %>"><%= love.name %></option>
+              <% end %>
+            </select>
+          </div>
 
-      <div>
-        <label for="date_box">
-          Date
-        </label>
+          <div class="mb-3">
 
-        <input type="date" id="date_box" name="query_date">
-      </div>
+            <label for="name_box" class="form-label">
+              Occasion name
+            </label>
 
-      <!-- <div>
+            <select id="occasion_name_box" name="query_occasion_name" class="form-control">
+              <option>Birthday</option>
+              <option>Anniversary</option>
+              <option>Christmas</option>
+              <option>Mother's Day</option>
+              <option>Father's Day</option>
+              <option>Wedding</option>
+              <option>Baptism</option>
+              <option>Graduation</option>
+              <option>Valentines Day</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="date_box" class="form-label">
+              Date
+            </label>
+
+            <input type="date" id="date_box" name="query_date" class="form-control">
+          </div>
+
+          <!-- <div>
         <label for="gifts_count_box">
           Gifts count
         </label>
@@ -79,17 +75,24 @@
         <input type="text" id="gifts_count_box" name="query_gifts_count">
       </div> !-->
 
-      <button>
-        Create occasion
-      </button>
-    </form>
+          <div class="d-grid">
+          <button class="btn btn-primary">
+            Create occasion
+          </button>
+          </div>
+          
+        </form>
+      </div>
+    </div>
   </div>
 </div>
 
 <hr>
+
+<hr>
 <div>
   <div>
-    <table border="1">
+    <table class="table">
       <tr>
 
         <th>
@@ -121,41 +124,41 @@
       </tr>
 
       <% @list_of_occasions.each do |an_occasion| %>
-      <tr>
+        <tr>
 
-        <td>
-          <%= an_occasion.user.username %>
-        </td>
+          <td>
+            <%= an_occasion.user.username %>
+          </td>
 
-        <td>
-          <%= an_occasion.loved_one.name %>
-        </td>
+          <td>
+            <%= an_occasion.loved_one.name %>
+          </td>
 
-        <td>
-          <%= an_occasion.name %>
-        </td>
+          <td>
+            <%= an_occasion.name %>
+          </td>
 
-        <td>
-          <%= an_occasion.date %>
-        </td>
+          <td>
+            <%= an_occasion.date %>
+          </td>
 
-       <!--  <td>
+          <!--  <td>
           <%= an_occasion.gifts_count %>
         </td> !-->
 
-        <td>
-          <%= time_ago_in_words(an_occasion.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(an_occasion.updated_at) %> ago
-        </td>
+          <td>
+            <%= time_ago_in_words(an_occasion.created_at) %> ago
+          </td>
+          <td>
+            <%= time_ago_in_words(an_occasion.updated_at) %> ago
+          </td>
 
-        <td>
-          <a href="/occasions/<%= an_occasion.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
+          <td>
+            <a href="/occasions/<%= an_occasion.id %>">
+              Show details
+            </a>
+          </td>
+        </tr>
       <% end %>
     </table>
   </div>
