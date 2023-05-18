@@ -8,8 +8,8 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="collapsible-nav-links">
-      <ul class="navbar-nav mr-auto">
+    <div class="collapse navbar-collapse justify-content-between" id="collapsible-nav-links">
+      <ul class="navbar-nav">
         <li class="nav-item <%= "active" if current_page?(gifts_path) %>">
           <a href="/gifts" class="nav-link">
             Gifts
@@ -39,10 +39,9 @@
           <li class="nav-item">
             <a href="/user_sign_out" class="nav-link">Sign out</a>
           </li>
-      <% end %>
-    </ul>
-        </li>
+        <% end %>
       </ul>
     </div> <!-- .navbar-collapse -->
   </div> <!-- .container -->
 </nav>
+
